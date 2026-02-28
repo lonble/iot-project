@@ -1,0 +1,10 @@
+BasedOnStyle: WebKit
+AlignAfterOpenBracket: Align
+AlignOperands: true
+AlignTrailingComments: true
+BinPackArguments: false
+BinPackParameters: false
+PointerAlignment: Right
+SortIncludes: false
+BreakBeforeBraces: Attach
+InsertBraces: true

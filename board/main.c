@@ -1,10 +1,14 @@
-#include <stdio.h>
+#include "shell.h"
+
+#include "net.h"
+#include "control.h"
 
 int main(void) {
-    puts("Hello World!");
+    init_net();
+    start_service();
 
-    printf("You are running RIOT on a(n) %s board.\n", RIOT_BOARD);
-    printf("This board features a(n) %s MCU.\n", RIOT_CPU);
+    char line_buf[SHELL_DEFAULT_BUFSIZE];
+    shell_run_forever(NULL, line_buf, sizeof(line_buf));
 
     return 0;
 }

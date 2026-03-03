@@ -5,6 +5,7 @@
 struct SenderController {
     thread_flags_t thread_flags;
     int *flag;
+    int interval;
 };
 
 extern void init_net(void);

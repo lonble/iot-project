@@ -42,7 +42,7 @@ void init_net(void) {
 }
 
 void *listener(void *arg) {
-    (void)arg;
+    int *indicator = arg;
 
     // init current thread's message queue for asynchronous communication
     msg_t msg_queue[MSG_QUEUE_SIZE];
@@ -64,6 +64,7 @@ void *listener(void *arg) {
         // get the packet
         msg_t msg;
         msg_receive(&msg);
+        ++*indicator;
         gnrc_pktsnip_t *pkt = msg.content.ptr;
 
         // extract headrs
@@ -108,6 +109,7 @@ void *sender(void *arg) {
     struct SenderController *typed_arg = arg;
     const thread_flags_t thread_flags = typed_arg->thread_flags;
     int *const flag = typed_arg->flag;
+    int const interval = typed_arg->interval;
 
     ipv6_addr_t addr = { 0 };
     if (!ipv6_addr_from_str(&addr, MULTICAST_ADDRESS)) {
@@ -151,8 +153,7 @@ void *sender(void *arg) {
                 abort();
             }
 
-            // packets will be droped if the frequency is higher
-            ztimer_sleep(ZTIMER_MSEC, 5);
+            ztimer_sleep(ZTIMER_MSEC, interval);
         }
     }
 

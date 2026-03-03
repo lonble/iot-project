@@ -17,6 +17,7 @@ USEMODULE += core_thread_flags
 
 # Enable timer
 USEMODULE += ztimer
+USEMODULE += ztimer_periodic
 USEMODULE += ztimer_msec
 
 # enable default networking devides in the platform

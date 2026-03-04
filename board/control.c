@@ -11,7 +11,7 @@
 
 #include "control.h"
 
-#define SEND_DURATION (30 * 60 * 1000)
+#define SEND_DURATION (10 * 60 * 1000)
 #define SEND_INTERVAL 5 // packets will be droped if the frequency is higher
 #define WATCH_INTERVAL 50
 #define EXPECTED_PACKETS (WATCH_INTERVAL / SEND_INTERVAL)

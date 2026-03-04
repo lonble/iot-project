@@ -38,7 +38,7 @@ sudo systemctl enable --now systemd-timesyncd.service
 1. Clone the repository and remember to pull the **submodules** as well.
 
 ```sh
-git clone --recurse-submodules `https://github.com/lonble/iot-project.git`
+git clone --recurse-submodules 'https://github.com/lonble/iot-project.git'
 ```
 
 If you have already cloned the main repository but forgot to include the submodules, you can use the following command.
